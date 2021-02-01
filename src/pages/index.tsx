@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import { graphql, Link} from "gatsby";
 
 type IndexPageProps = {
-   allMarkdownRempark: {
+   allMarkdownRemark: {
     nodes: {
       id: string
       frontmatter: {
