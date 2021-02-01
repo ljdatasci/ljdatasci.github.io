@@ -22,14 +22,14 @@ const Layout: React.FC = ({ children }) => (
       `}
       render={data => (
         <React.Fragment>
-         <div className="bg-indigo-200">
+         <div>
          <Header menuLinks={data.site.siteMetadata.menuLinks} siteTitle={data.site.siteMetadata.title} />
-          <div className="container mx-auto h-screen"
+          <div
           >
             {children}
            
           </div>
-          <footer className="bg-yellow-300 container mx-auto p-2 text-center"
+          <footer
           >
               <p>
                 © {new Date().getFullYear()}, Built with Gatsby

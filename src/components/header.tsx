@@ -19,11 +19,11 @@ type MenuProps = {
 const Header: React.FC<TitleProps & MenuProps> = ({ siteTitle, menuLinks }) => (
   <header >
     <div 
-      // style={{
-      // backgroundColor: "white",
-      // marginBottom: "1.45rem"}}
+      style={{
+      backgroundColor: "white",
+      marginBottom: "1.45rem"}}
       >
-      <div className="container mx-auto flex justify-between items-center py-6 text-pink-700"
+      <div
       >
         <h1 
           style={{
@@ -32,7 +32,7 @@ const Header: React.FC<TitleProps & MenuProps> = ({ siteTitle, menuLinks }) => (
         }}
         >
           <Link to="/" style={{
-            // color: "black",
+            color: "black",
             textDecoration: "none"
           }}>
             {siteTitle}

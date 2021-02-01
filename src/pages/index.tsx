@@ -3,11 +3,19 @@ import Layout from "../components/layout"
 import { graphql, Link} from "gatsby";
 
 type IndexPageProps = {
+   allMarkdownRempark: {
     nodes: {
-        frontmatter: {
-            title: string
+      id: string
+      frontmatter: {
+        title: string
+      }
+      parent: {
+        File: {
+          name: string
         }
+      }
     }
+  }
 }
 interface IndexPageQuery {
     data: Array<IndexPageProps>
@@ -18,13 +26,13 @@ const IndexPage: React.FC<IndexPageQuery> = ({data}) => (
         <h2>Hi people</h2>
         <p>Welcome to my blog.</p>
         <ul>
-            {data.nodes.map(post) => (
-                <li key={post.parent.name}>
-                    <Link to={`/blog/${post.parent.name}`}>
-                        {post.frontmatter.title}
-                    </Link>
-                </li>
-            )}
+          {data.nodes.map((post: { parent: { name: string | number | null | undefined; }; frontmatter: { title: React.ReactNode; }; }) => (
+            <li key={post.parent.name}>
+              <Link to={`/blog/${post.parent.name}`}>
+                {post.frontmatter.title}
+              </Link>
+            </li>
+          ))}
         </ul>
     </Layout>
 )
@@ -33,8 +41,9 @@ export default IndexPage;
 
 export const query = graphql`
   {
-    blog: allMarkdownRemark {
+    allMarkdownRemark {
       nodes {
+        id
         frontmatter {
           title
         }
@@ -44,7 +53,6 @@ export const query = graphql`
           }
         }
       }
-    }
-    
+    }  
   }
 `
