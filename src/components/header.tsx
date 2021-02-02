@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import styles from "../assets/scss/_layout.module.scss"
 
 type MenuLinksProps = {
   name: string,
@@ -17,39 +18,20 @@ type MenuProps = {
 }
 
 const Header: React.FC<TitleProps & MenuProps> = ({ siteTitle, menuLinks }) => (
-  <header >
-    <div 
-      style={{
-      backgroundColor: "white",
-      marginBottom: "1.45rem"}}
-      >
-      <div
-      >
-        <h1 
-          style={{
-          margin: 0,
-          flex: 1
-        }}
-        >
-          <Link to="/" style={{
-            color: "black",
-            textDecoration: "none"
-          }}>
+  <header>
+    <div>
+      <div className={styles.header}>
+        <h1>
+          <Link to="/">
             {siteTitle}
           </Link>
         </h1>
         <div>
           <nav>
-            <ul style={{ display: "flex", flex: 1 }}>
+            <ul className={styles.ul}>
               {menuLinks.map(link => (
-                <li
-                  key={link.name}
-                  style={{
-                    listStyleType: `none`,
-                    padding: `1rem`,
-                  }}
-                >
-                  <Link style={{  textDecoration: "none" }} to={link.link}>
+                <li key={link.name} className={styles.li}>
+                  <Link to={link.link} className={styles.link}>
                     {link.name}
                   </Link>
                 </li>

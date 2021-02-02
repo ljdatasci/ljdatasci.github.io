@@ -26,7 +26,7 @@ const IndexPage: React.FC<IndexPageQuery> = ({data}) => (
         <h2>Hi people</h2>
         <p>Welcome to my blog.</p>
         <ul>
-          {data.nodes.map((post: { parent: { name: string | number | null | undefined; }; frontmatter: { title: React.ReactNode; }; }) => (
+          {data.blog.nodes.map((post: { parent: { name: string }; frontmatter: { title: React.ReactNode; }; }) => (
             <li key={post.parent.name}>
               <Link to={`/blog/${post.parent.name}`}>
                 {post.frontmatter.title}
@@ -41,7 +41,7 @@ export default IndexPage;
 
 export const query = graphql`
   {
-    allMarkdownRemark {
+    blog: allMarkdownRemark {
       nodes {
         id
         frontmatter {

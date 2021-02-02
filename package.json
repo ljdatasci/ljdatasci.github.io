@@ -12,7 +12,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "license": "0BSD",
   "dependencies": {
@@ -20,12 +21,13 @@
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^2.31.1",
     "gatsby-plugin-mdx": "^1.6.0",
+    "gatsby-plugin-preload-fonts": "^1.8.0",
     "gatsby-plugin-purgecss": "^5.0.0",
     "gatsby-plugin-sass": "^2.7.0",
     "gatsby-source-filesystem": "^2.9.0",
     "gatsby-transformer-remark": "^2.14.0",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "sass": "^1.32.6"
   }
 }
