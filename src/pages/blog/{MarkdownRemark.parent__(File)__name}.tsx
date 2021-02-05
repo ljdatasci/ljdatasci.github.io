@@ -33,6 +33,7 @@ export default BlogTemplate;
 export const query = graphql`
   query PageTemplateQuery($id: String!) {
     markdownRemark( id: { eq: $id }) {
+      id
       html
       frontmatter {
         title

@@ -10,13 +10,14 @@ type Frontmatter = {
 type File = {
   name: string
 }
+
 type Post = {
   id: number;
   frontmatter: Frontmatter;
   parent: {File: File}
 }
 type AllMarkdownRemark = {
-  nodes: Post[]; 
+  edges: {node: Post[]}; 
 }
 type IndexPageProps = {
   allMarkdownRemark: AllMarkdownRemark
@@ -27,7 +28,7 @@ const IndexPage: React.FC<IndexPageProps> = (data) => (
         <h2>Hi people</h2>
         <p>Welcome to my blog.</p>
         <ul>
-          {data.allMarkdownRemark.nodes.map((post) => 
+          {data.allMarkdownRemark.edges.node.map((post) => 
             <li key={post.id}>
                <Link to={`/blog/${post.parent.File.name}`}></Link>
                {post.frontmatter.title}
@@ -42,7 +43,8 @@ export default IndexPage;
 export const query = graphql`
   query {
     allMarkdownRemark {
-      nodes {
+      edges {
+      node {
         id
         frontmatter {
           title
@@ -53,6 +55,7 @@ export const query = graphql`
           }
         }
       }
-    }  
+    }
+   }  
   }
 `
