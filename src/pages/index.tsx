@@ -2,37 +2,37 @@ import * as React from "react";
 import Layout from "../components/layout"
 import { graphql, Link} from "gatsby";
 
-type IndexPageProps = {
-   allMarkdownRemark: {
-    nodes: {
-      id: string
-      frontmatter: {
-        title: string
-      }
-      parent: {
-        File: {
-          name: string
-        }
-      }
-    }
-  }
-}
-interface IndexPageQuery {
-    data: Array<IndexPageProps>
+type Frontmatter = {
+  date: string;
+  title: string;
 }
 
-const IndexPage: React.FC<IndexPageQuery> = ({data}) => (
+type File = {
+  name: string
+}
+type Post = {
+  id: number;
+  frontmatter: Frontmatter;
+  parent: {File: File}
+}
+type AllMarkdownRemark = {
+  nodes: Post[]; 
+}
+type IndexPageProps = {
+  allMarkdownRemark: AllMarkdownRemark
+}
+
+const IndexPage: React.FC<IndexPageProps> = (data) => (
     <Layout>
         <h2>Hi people</h2>
         <p>Welcome to my blog.</p>
         <ul>
-          {data.blog.nodes.map((post: { parent: { name: string }; frontmatter: { title: React.ReactNode; }; }) => (
-            <li key={post.parent.name}>
-              <Link to={`/blog/${post.parent.name}`}>
-                {post.frontmatter.title}
-              </Link>
+          {data.allMarkdownRemark.nodes.map((post) => 
+            <li key={post.id}>
+               <Link to={`/blog/${post.parent.File.name}`}></Link>
+               {post.frontmatter.title}
             </li>
-          ))}
+          )}
         </ul>
     </Layout>
 )
@@ -40,8 +40,8 @@ const IndexPage: React.FC<IndexPageQuery> = ({data}) => (
 export default IndexPage;
 
 export const query = graphql`
-  {
-    blog: allMarkdownRemark {
+  query {
+    allMarkdownRemark {
       nodes {
         id
         frontmatter {

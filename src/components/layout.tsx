@@ -23,15 +23,19 @@ const Layout: React.FC = ({ children }) => (
       `}
       render={data => (
         <React.Fragment>
-         <div className={styles.cointaner}>
+         <div className={styles.container}>
          <Header menuLinks={data.site.siteMetadata.menuLinks} siteTitle={data.site.siteMetadata.title} />
-          <div >
+          <main>
             {children}
-          </div>
+          </main>
           <footer>
-              <p>
+              <h4>
                 © {new Date().getFullYear()}, Built with Gatsby
-              </p>
+              </h4>
+              <div className={styles.footerClass}>
+                <a href="https://github.com/ljdatasci">Github</a>
+                <a href="https://linkined.com/in/laurie-jefferson">LinkedIn</a>
+              </div>
           </footer>
           </div>
         </React.Fragment>

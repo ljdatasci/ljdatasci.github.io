@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400;0,700;1,400&family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400;0,700;1,400&family=Montserrat&display=swap");
 
-$kufam: 'Kufam', cursive;
-$montserrat: 'Montserrat', sans-serif;
-
+$kufam: "Kufam", cursive;
+$montserrat: "Montserrat", sans-serif;
 
 *,
 *::before,
@@ -12,31 +11,37 @@ $montserrat: 'Montserrat', sans-serif;
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #d8e3ea;
-    font-family: $montserrat;
+  margin: 0;
+  padding: 0;
+  background-color: #d8e3ea;
+  font-family: $kufam;
 }
 
-h1
+h1,
 h2 {
-  font: $kufam;
+  font-family: $montserrat;
   display: flex;
   flex: 1;
   margin: 0;
 }
 
 .container {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  text-align: left;
+  margin: auto;
+  width: 100%;
   max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
 }
+
 .header {
   background-color: #d8e3ea;
-  max-width: 960px;
-  padding: 1.45rem 1.0875rem;
+  margin: 2rem 0;
   display: flex;
+  width: inherit;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
@@ -54,4 +59,21 @@ h2 {
 .link {
   color: black;
   text-decoration: none;
+}
+
+footer {
+  text-align: center;
+}
+
+.footerClass {
+  display: flex;
+  margin: 10px auto;
+  text-align: center;
+  justify-content: center;
+
+  a {
+    padding: 0px 5px;
+    text-decoration: none;
+    color: #4b4c4b;
+  }
 }

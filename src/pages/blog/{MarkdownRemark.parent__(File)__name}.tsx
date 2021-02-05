@@ -2,23 +2,28 @@ import * as React from "react";
 import Layout from "../../components/layout"
 import {PageProps, graphql} from "gatsby";
 
+type Frontmatter = {
+  title: string
+}
+type Post = {
+  html: string,
+  frontmatter: Frontmatter
+}
 
-interface PageTemplateQuery {
-    data: {
-        markdownRemark: {
-            html: string,
-            excerpt: string,
-            frontmatter: {
-                title: string
-            }
-        }
-    }
+type MarkdownRemark = {
+  markdownremark: Post[]
+}
+
+type PageTemplateQuery = {
+    data: MarkdownRemark
 }
 
 const BlogTemplate: React.FC<PageTemplateQuery> = ({ data }) => (
     <Layout>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
+        {data.markdownremark.map((post) => 
+          <><h1>{post.frontmatter.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: post.html }} /></>
+        )}
     </Layout>
     
 )
