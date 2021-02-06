@@ -28,10 +28,10 @@ const Header: React.FC<TitleProps & MenuProps> = ({ siteTitle, menuLinks }) => (
         </h1>
         <div>
           <nav>
-            <ul className={styles.ul}>
+            <ul>
               {menuLinks.map(link => (
-                <li key={link.name} className={styles.li}>
-                  <Link to={link.link} className={styles.link}>
+                <li key={link.name}>
+                  <Link to={link.link}>
                     {link.name}
                   </Link>
                 </li>

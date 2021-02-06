@@ -1,38 +1,40 @@
 import * as React from "react";
-import Layout from "../components/layout"
-import { graphql, Link} from "gatsby";
+import Layout from "../components/layout";
+import { graphql, Link, PageProps} from "gatsby";
+import styles from "../assets/scss/_layout.module.scss"
 
 type Frontmatter = {
   date: string;
-  title: string;
-}
-
-type File = {
-  name: string
+  title: string
 }
 
 type Post = {
-  id: number;
-  frontmatter: Frontmatter;
-  parent: {File: File}
+  node : {
+    id: number;
+    frontmatter: Frontmatter
+    parent: { name: string}
+  }
+  
 }
 type AllMarkdownRemark = {
-  edges: {node: Post[]}; 
+  edges: Post[]; 
 }
 type IndexPageProps = {
   allMarkdownRemark: AllMarkdownRemark
 }
 
-const IndexPage: React.FC<IndexPageProps> = (data) => (
+const IndexPage: React.FC<PageProps<IndexPageProps>> = (data) => (
     <Layout>
         <h2>Hi people</h2>
         <p>Welcome to my blog.</p>
         <ul>
-          {data.allMarkdownRemark.edges.node.map((post) => 
-            <li key={post.id}>
-               <Link to={`/blog/${post.parent.File.name}`}></Link>
-               {post.frontmatter.title}
+          {data.data.allMarkdownRemark.edges.map((post) => 
+            <li key={post.node.parent.name}>
+              <Link to={`/blog/${post.node.parent.name}`}>
+                {post.node.frontmatter.title}
+              </Link>
             </li>
+
           )}
         </ul>
     </Layout>
