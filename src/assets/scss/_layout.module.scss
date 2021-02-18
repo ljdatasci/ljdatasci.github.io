@@ -1,8 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Halant&family=Montserrat:wght@700&family=Satisfy&display=swap");
 
 $montserrat: "Montserrat", sans-serif;
-$satisfy: "Satisfy, cursive";
-$halant: "Halant, serif";
+$satisfy: "Satisfy", cursive;
+$halant: "Halant", serif;
+$bg-clr: #eae9ed;
+$link-clr: "";
+$header-clr: #dd7564;
+$underline-clr: #b2dedd;
+$text-color: #000000;
+$font-400: 400;
+$footer-clr: #1fa5a6;
 
 *,
 *::before,
@@ -14,23 +21,31 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #df0054;
+  background-color: $bg-clr;
   font-family: $halant;
   min-height: 100vh;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #ffffff;
+  color: $text-color;
 }
 
 h1,
 h2 {
   font-family: $satisfy;
+  color: $header-clr;
+  font-weight: $font-400;
   display: flex;
   flex: 1;
   margin: 1.2rem 0;
   padding: 0;
-  color: #ffffff;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-family: $halant;
 }
 
 .container {
@@ -46,18 +61,18 @@ h2 {
 }
 
 .header {
-  background-color: #df0054;
   margin: 1.7rem 0;
   display: flex;
   width: inherit;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: #ffffff;
+  color: $header-clr;
+  font-family: $satisfy;
 
   a {
     text-decoration: none;
-    color: #ffffff;
+    color: $header-clr;
   }
 
   ul {
@@ -74,9 +89,6 @@ h2 {
   .title {
     font-size: 1.5rem;
     font-weight: 700;
-    text-decoration: underline;
-    text-decoration-color: #ffd900;
-    font-family: $satisfy;
   }
 }
 
@@ -92,6 +104,8 @@ main {
       h1 {
         font-size: 3.7rem;
         line-height: 1;
+        text-decoration: underline;
+        text-decoration-color: $underline-clr;
       }
 
       ul {
@@ -107,7 +121,7 @@ main {
             a {
               text-decoration: none;
               font-size: 1.75rem;
-              color: beige;
+              color: $header-clr;
             }
           }
         }
@@ -118,10 +132,9 @@ main {
 
 footer {
   text-align: center;
-  background-color: beige;
+  // background-color: $footer-clr;
   padding-top: 1.75rem;
   padding-bottom: 5rem;
-  color: #4b4c4b;
 }
 
 .footerClass {
@@ -129,11 +142,10 @@ footer {
   margin: 10px auto;
   text-align: center;
   justify-content: center;
-  background-color: beige;
 
   a {
     padding: 0px 5px;
     text-decoration: none;
-    color: #4b4c4b;
+    color: $text-color;
   }
 }

@@ -1,5 +1,5 @@
 ---
 date: "2019-05-05"
-title: "My second blog post"
+title: "Gatsbyjs and Netlify"
 description: "This is my second blog post"
 ---
