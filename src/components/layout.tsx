@@ -28,16 +28,18 @@ const Layout: React.FC = ({ children }) => (
           <main>
             {children}
           </main>
+          </div>
           <footer>
+            <div>
               <h4>
                 © {new Date().getFullYear()}, Built with Gatsby
               </h4>
               <div className={styles.footerClass}>
                 <a href="https://github.com/ljdatasci">Github</a>
-                <a href="https://linkined.com/in/laurie-jefferson">LinkedIn</a>
+                <a href="https://linkedin.com/in/laurie-jefferson">LinkedIn</a>
               </div>
+            </div>
           </footer>
-          </div>
         </React.Fragment>
       )}
     />

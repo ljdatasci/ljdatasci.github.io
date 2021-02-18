@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400;0,700;1,400&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Halant&family=Montserrat:wght@700&family=Satisfy&display=swap");
 
-$kufam: "Kufam", cursive;
 $montserrat: "Montserrat", sans-serif;
+$satisfy: "Satisfy, cursive";
+$halant: "Halant, serif";
 
 *,
 *::before,
@@ -13,16 +14,23 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #d8e3ea;
-  font-family: $kufam;
+  background-color: #df0054;
+  font-family: $halant;
+  min-height: 100vh;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
 }
 
 h1,
 h2 {
-  font-family: $montserrat;
+  font-family: $satisfy;
   display: flex;
   flex: 1;
-  margin: 0;
+  margin: 1.2rem 0;
+  padding: 0;
+  color: #ffffff;
 }
 
 .container {
@@ -34,30 +42,86 @@ h2 {
   margin: auto;
   width: 100%;
   max-width: 960px;
+  min-height: 100vh;
 }
 
 .header {
-  background-color: #d8e3ea;
-  margin: 2rem 0;
+  background-color: #df0054;
+  margin: 1.7rem 0;
   display: flex;
   width: inherit;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  color: #ffffff;
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
 
   ul {
     display: flex;
     flex: 1;
+
+    li {
+      list-style-type: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #ffd900;
+    font-family: $satisfy;
   }
 }
 
-li {
-  list-style-type: none;
-  padding: 0.75rem;
+main {
+  flex: auto;
+
+  article {
+    width: 80%;
+    margin: 1rem 0;
+    padding: 0;
+
+    div {
+      h1 {
+        font-size: 3.7rem;
+        line-height: 1;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin: 0;
+          list-style-type: none;
+          padding: 1.2rem 0;
+
+          h2 {
+            a {
+              text-decoration: none;
+              font-size: 1.75rem;
+              color: beige;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 footer {
   text-align: center;
+  background-color: beige;
+  padding-top: 1.75rem;
+  padding-bottom: 5rem;
+  color: #4b4c4b;
 }
 
 .footerClass {
@@ -65,6 +129,7 @@ footer {
   margin: 10px auto;
   text-align: center;
   justify-content: center;
+  background-color: beige;
 
   a {
     padding: 0px 5px;

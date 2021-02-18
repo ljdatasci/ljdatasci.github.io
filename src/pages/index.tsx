@@ -5,7 +5,8 @@ import styles from "../assets/scss/_layout.module.scss"
 
 type Frontmatter = {
   date: string;
-  title: string
+  title: string;
+  description: string;
 }
 
 type Post = {
@@ -25,18 +26,24 @@ type IndexPageProps = {
 
 const IndexPage: React.FC<PageProps<IndexPageProps>> = (data) => (
     <Layout>
-        <h2>Hi people</h2>
-        <p>Welcome to my blog.</p>
-        <ul>
-          {data.data.allMarkdownRemark.edges.map((post) => 
-            <li key={post.node.parent.name}>
-              <Link to={`/blog/${post.node.parent.name}`}>
-                {post.node.frontmatter.title}
-              </Link>
-            </li>
-
-          )}
-        </ul>
+      <article>
+        <div>
+          <h1>Blog</h1>    
+          <ul>
+            {data.data.allMarkdownRemark.edges.map((post) => 
+              <li key={post.node.parent.name}>
+                <h2>
+                  <Link to={`/blog/${post.node.parent.name}`}>
+                    {post.node.frontmatter.title}
+                  </Link>
+                </h2>
+                <p>{post.node.frontmatter.description}</p>
+              </li>
+            )}
+          </ul>
+        </div>
+      </article>
+        
     </Layout>
 )
 
@@ -50,6 +57,7 @@ export const query = graphql`
         id
         frontmatter {
           title
+          description
         }
         parent {
           ... on File {

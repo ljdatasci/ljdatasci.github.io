@@ -21,8 +21,8 @@ const Header: React.FC<TitleProps & MenuProps> = ({ siteTitle, menuLinks }) => (
   <header>
     <div>
       <div className={styles.header}>
-        <h1>
-          <Link to="/" className={styles.link}>
+        <h1 className={styles.title}>
+          <Link to="/">
             {siteTitle}
           </Link>
         </h1>
