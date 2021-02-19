@@ -43,6 +43,9 @@ const IndexPage: React.FC<PageProps<IndexPageProps>> = (data) => (
           </ul>
         </div>
       </article>
+      <div>
+        <Link to="/tags" className={styles.tags}>Go to tags page</Link>
+      </div>
         
     </Layout>
 )

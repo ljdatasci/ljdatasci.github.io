@@ -144,8 +144,15 @@ footer {
   justify-content: center;
 
   a {
+    margin: 0 10px;
     padding: 0px 5px;
     text-decoration: none;
     color: $text-color;
   }
+}
+
+.tags {
+  font-family: $halant;
+  text-decoration: none;
+  color: $footer-clr;
 }
